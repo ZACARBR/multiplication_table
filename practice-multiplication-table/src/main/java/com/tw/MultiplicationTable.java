@@ -20,22 +20,20 @@ public class MultiplicationTable {
     }
 
     public String generateTable(int start, int end) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = start; i < end + 1; i++) {
 
-            result += generateLine(start, i) + System.lineSeparator();
+            result.append(generateLine(start, i)).append(System.lineSeparator());
         }
-        return result.trim();
+        return result.toString().trim();
     }
 
     public String generateLine(int start, int row) {
-        String line = "";
+        StringBuilder line = new StringBuilder();
         for(;start <= row; start++){
-            line += generateSingleExpression(start, row)+ "  ";
+            line.append(generateSingleExpression(start, row)).append("  ");
         }
-        return line.trim();
-//        //System.lineSeparator()
-
+        return line.toString().trim();
     }
 
     public String generateSingleExpression(int multiplicand, int multiplier) {
