@@ -4,7 +4,7 @@ import oracle.jrockit.jfr.openmbean.ProducerDescriptorType;
 
 public class MultiplicationTable {
     public String create(int start, int end) {
-        return null;
+        return isValid(start, end) ? generateSingleExpression(start, end) : null;
     }
 
     public Boolean isValid(int start, int end) {
@@ -20,7 +20,12 @@ public class MultiplicationTable {
     }
 
     public String generateTable(int start, int end) {
-        return null;
+        String output = "";
+        for (int i = start; i < end + 1; i++) {
+
+            output += generateLine(start, i) + System.lineSeparator();
+        }
+        return output.trim();
     }
 
     public String generateLine(int start, int row) {
